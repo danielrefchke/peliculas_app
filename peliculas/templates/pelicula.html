@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Viendo pelicula {{pelicula.titulo}}{% endblock %}
+
+{% block encabezado %}Información de la pelicula "{{pelicula.titulo}}"{% endblock %}
+
+{% block contenido %}
+
+<a class="button" href="{{ request.scheme }}://{{ request.get_host }}/directores/{{pelicula.director.id}}">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    Volver
+</a>
+
+<table class="u-full-width">
+        <thead></thead>
+        <tbody>
+            <tr>
+                <td>Título</td>
+                <td>{{pelicula.titulo}}</td>
+            </tr>
+            <tr>
+                <td>Fecha estreno</td>
+                <td>{{pelicula.fecha}}</td>
+            </tr>
+            <tr>
+                <td>Resumen</td>
+                <td>{{pelicula.resumen}}</td>
+            </tr>
+            <tr>
+                <td>Género</td>
+                <td>{% for g in pelicula.genero.all %}
+                    <span class="tag">{{g}}</span> 
+                {%endfor%}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

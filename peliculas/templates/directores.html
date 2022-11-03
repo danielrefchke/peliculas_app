@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Listado de directores{% endblock %}
+
+{% block encabezado %}Catálogo de Directores{% endblock %}
+
+{% block contenido %}
+    
+<table class="u-full-width">
+    <thead>
+        <th>Nombre</th>
+        <th>C. Peliculas</th>
+        <th>
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </th>
+    </thead>
+    <tbody>
+        {% for d in directores %}
+        <tr>
+            <td>{{d.nombre}}</td>
+            <td>{{d.pelicula_set.count}}</td>
+            <td>
+                <a class="button" href="directores/{{d.id}}"><i class="fa fa-search" aria-hidden="true"></i> Ver</a>
+            </td>
+        </tr>
+        {%endfor%}
+</tbody>
+</table>
+    
+{% endblock %}

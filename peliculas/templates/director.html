@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Viendo director {{director.nombre}}{% endblock %}
+
+{% block encabezado %}Información del director {{director.nombre}}{% endblock %}
+
+{% block contenido %}
+<table class="u-full-width"> 
+    <thead>
+        <th>Título</th>
+        <th>Género</th>
+        <th>
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </th>
+    </thead>
+    <tbody>
+        {% for p in peliculas %}
+        <tr>
+        <td>{{p.titulo}}</td>
+        <td>
+            {% for g in p.genero.all %}
+                {{g}} 
+            {%endfor%}
+        </td> 
+        <td>
+            <a class="button" href="/pelicula/{{p.id}}"> <i class="fa fa-search" aria-hidden="true"></i> Ver</a>
+            </td>
+        </tr>
+        {%endfor%}
+</tbody>
+</table>
+{% endblock %}

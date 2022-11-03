@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block encabezado %}Resumen del catalogo{% endblock %}
+
+{% block contenido %}
+    
+    <ul>
+        <li>Cantidad de directores: {{cdirectores}}</li>
+        <li>Cantidad de Peliculas: {{cpeliculas}}</li>
+        <li>Cantidad de Generos: {{cgeneros}}</li>
+    </ul>
+    
+{% endblock %}
